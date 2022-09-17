@@ -28,7 +28,9 @@
 
   <div>
     <%= form.label :problems, style: "display: block" %>
-    <%= form.text_field :problems %>
+    <%= form.fields_for :problems do |prob| %>
+    <%= prob.check_box :evicted %><%= prob.label :evicted %><br />
+    <% end %>
   </div>
 
   <div>
