@@ -17,6 +17,21 @@
   </div>
 
   <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :other_contact, style: "display: block" %>
+    <%= form.text_field :other_contact %>
+  </div>
+
+  <div>
     <%= form.label :income, style: "display: block" %>
     <%= form.text_field :income %>
   </div>
@@ -29,7 +44,11 @@
   <div>
     <%= form.label :problems, style: "display: block" %>
     <%= form.fields_for :problems do |prob| %>
-    <%= prob.check_box :evicted %><%= prob.label :evicted %><br />
+    <% %i{evicted ll_complaint living_conditions relocation_services
+                                         house_search
+                                         rent_increase}.each do |chk| %>
+    <%= prob.check_box chk %><%= prob.label chk %>
+    <% end %>
     <% end %>
   </div>
 

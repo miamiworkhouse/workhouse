@@ -66,6 +66,11 @@ class ApplicantsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def applicant_params
       params.require(:applicant).permit(:name, :income, :location,
-                                        {problems: [:evicted]})
+                                        :phone, :emaill, :other_contact,
+                                        {problems: %i{evicted ll_complaint
+                                         living_conditions
+                                         relocation_services
+                                         house_search
+                                         rent_increase}})
     end
 end
