@@ -22,5 +22,6 @@ WORKDIR /app
 ADD Gemfile* /app
 # ADD vendor/gems /app/vendor/gems
 RUN bundle install
+RUN rails tailwindcss:install
 ADD . /app
 CMD bundle exec rails s -b 0
